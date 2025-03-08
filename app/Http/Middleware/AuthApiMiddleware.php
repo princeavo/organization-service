@@ -36,7 +36,7 @@ class AuthApiMiddleware
         }
         $input = $request->all();
         $input["user"] = $response["authenticated_user"];
-        $request->replace($input);
+        $request->merge(["user" => $response["authenticated_user"]]);
         return $next($request);
     }
 }
