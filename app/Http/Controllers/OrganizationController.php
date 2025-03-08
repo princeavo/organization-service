@@ -31,7 +31,7 @@ class OrganizationController extends Controller
 
         $organization = Organization::create($validatedData);
 
-        $organization->logo = Storage::disk("public")->url($organization->logo);
+        $organization->logo = config("app.APP_GATEWAY_URL") . "/organization/storage/" .  $organization->logo;
 
         return response()->json(['success' => true,'message' => 'Organization created successfully', 'organization' => $organization], 201);
     }

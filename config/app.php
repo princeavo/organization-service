@@ -17,6 +17,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'APP_GATEWAY_URL' => env('APP_GATEWAY_URL', 'http://127.0.0.1:8000/api'),
+
 
     /*
     |--------------------------------------------------------------------------
