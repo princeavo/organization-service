@@ -9,6 +9,8 @@ class OrganizationController extends Controller
 {
     public function create(Request $request)
     {
+        
+
         $validatedData = $request->validate([
             'name' => 'nullable|string|max:255',
             'description' => 'nullable|string',

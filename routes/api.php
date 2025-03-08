@@ -20,7 +20,7 @@ use App\Http\Controllers\OrganizationController;
 Route::middleware("custom_api_auth")->group(function(){
     Route::controller(OrganizationController::class)
     ->group(function () {
-        Route::get('/create', 'create');
+        Route::post('/create', 'create');
     });
 
     Route::controller(ServiceController::class)

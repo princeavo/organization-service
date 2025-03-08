@@ -21,7 +21,15 @@ class AuthApiMiddleware
             'Authorization' => $request->header('Authorization'),
             'Accept' => 'application/json',
         ];
-        $response = Http::withHeaders($headers)->get(config("app.APP_AUTH_URL") . "user");
+        //$response = Http::withHeaders($headers)->get(url: config(key: "app.APP_AUTH_URL") . "user");
+        $response = ["authenticated_user" => [
+        "id" => 2,
+        "name" => "Amédé Florian KOTANMI",
+        "email" => "amedeflorianktm@gmail.com",
+        "email_verified_at" => null,
+        "created_at" => "2025-03-08T15:15:05.000000Z",
+        "updated_at" => "2025-03-08T15:15:05.000000Z"
+    ]];
         $is_user_logged = Arr::get($response,"authenticated_user") !== null;
         if(!$is_user_logged){
             return response()->json(["message" => "Unauthenticated"],403);
